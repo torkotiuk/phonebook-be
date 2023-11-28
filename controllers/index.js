@@ -1,5 +1,5 @@
-const productsControllers = require('./products');
+const contactsControllers = require('./contacts');
 
 module.exports = {
-  productsControllers,
+  contactsControllers,
 };
