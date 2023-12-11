@@ -20,10 +20,6 @@ const contactSchema = Schema({
   phone: {
     type: String,
     required: true,
-    match: [
-      /^(\()?\d{3}(\))?(-|\s)?\d{3}(-|\s)\d{4}$/,
-      'Please fill the number in formats (123) 456-7890 or 123-456-7890',
-    ],
   },
   favorite: {
     type: Boolean,
