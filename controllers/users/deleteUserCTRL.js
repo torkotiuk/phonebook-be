@@ -1,8 +1,8 @@
-const { contactServices: service } = require('../../services');
+const { userServices: service } = require('../../services');
 
-const deleteContactCTRL = async (req, res, next) => {
+const deleteUserCTRL = async (req, res, next) => {
   try {
-    const result = await service.deleteContactSRV(req.params.id);
+    const result = await service.deleteUserSRV(req.params.id);
 
     // - - - if id doesn't exist
     if (!result) {
@@ -24,4 +24,4 @@ const deleteContactCTRL = async (req, res, next) => {
   }
 };
 
-module.exports = deleteContactCTRL;
+module.exports = deleteUserCTRL;

@@ -10,6 +10,13 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 app.use('/api/v1/contacts', routes.contacts);
+app.use((_, res) => {
+  res.status(404).json({
+    status: 'error',
+    code: 404,
+    message: 'Not found',
+  });
+});
 app.use((error, _, res, __) => {
   const { code = 500, message = 'server error' } = error;
 
