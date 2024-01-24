@@ -3,6 +3,7 @@ const cors = require('cors');
 const routes = require('./routes');
 const mongoose = require('mongoose');
 require('dotenv').config();
+require('./settings/passport-config');
 const { DB_HOST, PORT = 5000 } = process.env;
 
 const app = express();
@@ -10,6 +11,8 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 app.use('/api/v1/contacts', routes.contacts);
+app.use('/api/v1/users', routes.users);
+app.use('/api/v1/auth', routes.auth);
 app.use((_, res) => {
   res.status(404).json({
     status: 'error',
