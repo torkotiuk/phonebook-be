@@ -4,7 +4,7 @@ const getUserProfileCTRL = async (req, res, next) => {
       status: 'success',
       code: 200,
       data: {
-        id: req.user._id,
+        // id: req.user._id,
         email: req.user.email,
       },
     });

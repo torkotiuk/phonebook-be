@@ -2,7 +2,7 @@ const { userServices: service } = require('../../services');
 
 const getAllUsersCTRL = async (req, res, next) => {
   try {
-    console.log('getAllUsersCTRL');
+    // console.log('getAllUsersCTRL');
     const result = await service.getAllUsersSRV();
     res.json({
       status: 'success',

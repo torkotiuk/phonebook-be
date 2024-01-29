@@ -31,5 +31,5 @@ const jwtStrategy = new Strategy(settings, async (payload, done) => {
 });
 
 passport.use(jwtStrategy);
-// identificate strategy, like 'jwt' if a project has couple of them
+// identify strategy, like 'jwt' if a project has couple of them
 // passport.use('jwt', jwtStrategy);

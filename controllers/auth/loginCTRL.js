@@ -8,6 +8,7 @@ require('dotenv').config();
 const loginCTRL = async (req, res, next) => {
   try {
     const user = await service.findUserSRV({ email: req.body.email });
+
     if (!user || !bcrypt.compareSync(req.body.password, user.password)) {
       res.status(400).json({
         status: 'Fail',
@@ -23,6 +24,12 @@ const loginCTRL = async (req, res, next) => {
       id: user._id,
     };
     const token = jwt.sign(payload, SECRET_KEY);
+
+    // ------------------------
+    // save token to db -------
+    await service.updateUserByIdSRV(user._id, { token });
+    // ------------------------
+    // ------------------------
 
     res.json({
       status: 'success',

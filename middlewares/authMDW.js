@@ -2,8 +2,9 @@ const passport = require('passport');
 
 const authMDW = (req, res, next) => {
   return passport.authenticate('jwt', { session: false }, (error, user) => {
-    if (error || !user) {
-      console.log('status');
+    // if (error || !user) {
+    if (error || !user || !user.token) {
+      console.log('authMDW');
       res.status(401).json({
         status: 'fail',
         code: 401,
